@@ -1,0 +1,44 @@
+<h1>Pretraži filmove</h1>
+<hr>
+<form action="/" method="GET" [formGroup]="formGrupa" (ngSubmit)="pretrazi()">
+	<label for="kljucneRijeci" [textContent]="'Pretraži ključne riječi: '"></label>
+	<input type="text" id="kljucneRijeci" formControlName="kljucneRijeci" required/>
+	<button type="submit" [disabled]="formGrupa.invalid" [textContent]="'Pretraži'"></button>
+</form>
+<p>Stranica: <span [textContent]="stranica"></span></p>
+<hr>
+
+<div id="filmovi" *ngIf="(filmovi$ | async)?.length ?? 0 > 0; else prazno">
+	<app-film-tmdb *ngFor="let film of (filmovi$ | async)" [film]="film"></app-film-tmdb>
+</div>
+<ng-template #prazno>
+	Nisu pronađeni filmovi.
+</ng-template>
+
+<nav>
+	<ul>
+		<li>
+			<button
+				type="button"
+				*ngIf="stranica !== 1"
+				(click)="onChangeStranica(stranica - 1)"
+				[textContent]="'Prethodna'"
+			></button>
+		</li>
+		<li>
+			<button
+				type="button"
+				[disabled]="stranica === 1"
+				(click)="onChangeStranica()"
+				[textContent]="'1'"
+			></button>
+		</li>
+		<li>
+			<button
+				type="button"
+				(click)="onChangeStranica(stranica + 1)"
+				[textContent]="'Sljedeća'"
+			></button>
+		</li>
+	</ul>
+</nav>

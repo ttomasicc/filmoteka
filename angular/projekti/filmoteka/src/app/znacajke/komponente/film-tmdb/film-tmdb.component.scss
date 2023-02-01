@@ -1,0 +1,38 @@
+@import '../../../../styles-boje';
+
+
+.film-kartica {
+	box-shadow: 1px 1px rgba(0, 0, 0, 0.1);
+	border: {
+		style: solid;
+		width: 1px;
+		color: #AFAFAF;
+		radius: 5px
+	}
+}
+
+.film-slika {
+	width: 100%;
+}
+
+.film-info {
+	padding: 12px;
+
+	h4 {
+		margin-bottom: 8px;
+	}
+
+	p {
+		font-size: small;
+		color: lighten($crna, 5%);
+	}
+}
+
+.btn {
+	margin: 0 auto;
+
+	button {
+		display: block;
+		width: 100%;
+	}
+}

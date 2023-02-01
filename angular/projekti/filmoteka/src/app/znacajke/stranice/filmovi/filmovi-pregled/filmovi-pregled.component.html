@@ -1,0 +1,66 @@
+<h1>Pregled filmova</h1>
+<hr>
+<select (change)="onChangeZanr($event.target)">
+	<option value="-1" selected [textContent]="'Svi žanrovi'"></option>
+	<option
+		*ngFor="let zanr of (zanrovi$ | async)"
+		[value]="zanr.id"
+		[ngValue]="zanr.id"
+		[textContent]="zanr.opis"
+	></option>
+</select>
+
+<select (change)="onChangeSort($event.target)">
+	<option value="-1" selected [textContent]="'Sortiraj'"></option>
+	<option
+		*ngFor="let opcija of sortOpcije"
+		[value]="opcija.sort"
+		[ngValue]="opcija.sort"
+		[textContent]="opcija.labela"
+	></option>
+</select>
+
+<label for="datum" [textContent]="'Od: '"></label>
+<input
+	id="datum"
+	type="date"
+	(input)="onChangeDatum($event.target)"
+/>
+
+<p>Stranica: <span [textContent]="stranica"></span></p>
+<hr>
+
+<div id="filmovi" *ngIf="filmovi$ | async as filmovi; else prazno">
+	<app-film *ngFor="let film of filmovi" [film]="film"></app-film>
+</div>
+<ng-template #prazno>
+	Nije pronađen film za tražene kriterije.
+</ng-template>
+
+<nav>
+	<ul>
+		<li>
+			<button
+				type="button"
+				*ngIf="stranica !== 1"
+				(click)="onChangeStranica(stranica - 1)"
+				[textContent]="'Prethodna'"
+			></button>
+		</li>
+		<li>
+			<button
+				type="button"
+				[disabled]="stranica === 1"
+				(click)="onChangeStranica()"
+				[textContent]="'1'"
+			></button>
+		</li>
+		<li>
+			<button
+				type="button"
+				(click)="onChangeStranica(stranica + 1)"
+				[textContent]="'Sljedeća'"
+			></button>
+		</li>
+	</ul>
+</nav>

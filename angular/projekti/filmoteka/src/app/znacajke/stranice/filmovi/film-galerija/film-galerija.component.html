@@ -1,0 +1,63 @@
+<ng-container *ngIf="film; else prazno">
+	<h1>Galerija slika {{film.naslov}}</h1>
+	<hr>
+	<label for="datum_od">Od: </label>
+	<input type="date" id="datum_od" (change)="onChangeDatumOd($event.target)"/>
+	<label for="datum_do">Do: </label>
+	<input type="date" id="datum_do" (change)="onChangeDatumDo($event.target)"/>
+
+	<app-forma-slika
+		[filmID]="film.id"
+		(promjena)="azurirajSlike()"
+	></app-forma-slika>
+	<p id="stranica">Stranica: <span [textContent]="stranica"></span></p>
+	<hr>
+
+	<div id="galerija" *ngIf="(putanjeSlika$ | async)?.length ?? 0 > 0; else nemaSlika">
+		<a
+			*ngFor="let putanja of (putanjeSlika$ | async)"
+			[routerLink]="['/filmovi/pregled', film.id]"
+		><img
+				[src]="'/slike/' + film.id + putanja"
+				[alt]="'Slika filma ' + film.naslov"
+		></a>
+	</div>
+
+	<ng-template #nemaSlika>
+		Nema dostupnih slika.
+	</ng-template>
+
+	<nav>
+		<ul>
+			<li>
+				<button
+					type="button"
+					*ngIf="stranica !== 1"
+					(click)="onChangeStranica(stranica - 1)"
+					[textContent]="'Prethodna'"
+				></button>
+			</li>
+			<li>
+				<button
+					type="button"
+					[disabled]="stranica === 1"
+					(click)="onChangeStranica()"
+					[textContent]="'1'"
+				></button>
+			</li>
+			<li>
+				<button
+					type="button"
+					(click)="onChangeStranica(stranica + 1)"
+					[textContent]="'Sljedeća'"
+				></button>
+			</li>
+		</ul>
+	</nav>
+</ng-container>
+
+<ng-template #prazno>
+	<h1>Galerija slika</h1>
+	<hr>
+	<p>Film nije pronađen.</p>
+</ng-template>

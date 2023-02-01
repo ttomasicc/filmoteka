@@ -1,0 +1,157 @@
+<div *ngIf="film$ | async as film; else prazno">
+	<h1>Pregled filma {{film.naslov}}</h1>
+	<hr>
+	<div id="film">
+		<div id="info">
+			<div>
+				<span>ID: </span>
+				<label [textContent]="film.id"></label>
+			</div>
+
+			<div>
+				<span>ID TMDB: </span>
+				<label [textContent]="film.idTMDB"></label>
+			</div>
+
+			<div>
+				<span>ID IMDB: </span>
+				<label [textContent]="film.idIMDB"></label>
+			</div>
+
+			<div>
+				<span>Korisnik: </span>
+				<label
+					[textContent]="film.korisnik.ime + ' ' + film.korisnik.prezime + ' (' + film.korisnik.korime + ')'"
+				></label>
+			</div>
+
+			<div>
+				<span>Žanrovi: </span>
+				<div>
+					<span
+						*ngFor="let zanr of film.zanrovi; let isZadnji=last"
+						[textContent]="zanr.opis + (isZadnji ? '' : ', ')"
+					></span>
+				</div>
+			</div>
+
+			<div>
+				<span>Izvorni jezik: </span>
+				<label [textContent]="film.izvorniJezik"></label>
+			</div>
+
+			<div>
+				<span>Izvorni naslov: </span>
+				<label [textContent]="film.izvorniNaslov"></label>
+			</div>
+
+			<div>
+				<span>Naslov: </span>
+				<label [textContent]="film.naslov"></label>
+			</div>
+
+			<div>
+				<span>Slogan: </span>
+				<label [textContent]="film.slogan"></label>
+			</div>
+
+			<div>
+				<span>Sažetak: </span>
+				<label [textContent]="film.sazetak"></label>
+			</div>
+
+			<div>
+				<span>Prihod: </span>
+				<label [textContent]="film.prihod"></label>
+			</div>
+
+			<div>
+				<span>Trajanje (min): </span>
+				<label [textContent]="film.trajanje"></label>
+			</div>
+
+			<div>
+				<span>Datum unosa: </span>
+				<label [textContent]="film.datumUnosa | date:'dd.MM.yyyy.'"></label>
+			</div>
+
+			<div>
+				<span>Datum izdavanja: </span>
+				<label [textContent]="film.datumIzdavanja | date:'dd.MM.yyyy.'"></label>
+			</div>
+
+			<div>
+				<span>Budžet: </span>
+				<label [textContent]="film.budzet"></label>
+			</div>
+
+			<div>
+				<span>Početna stranica: </span>
+				<a
+					[href]="film.stranica"
+					[textContent]="film.stranica"
+					target="_blank"
+				></a>
+			</div>
+
+			<div>
+				<span>Status: </span>
+				<label [textContent]="film.status"></label>
+			</div>
+
+			<div>
+				<span>18+: </span>
+				<label [textContent]="film.odrastao ? 'Da' : 'Ne'"></label>
+			</div>
+
+			<div>
+				<span>Odobren: </span>
+				<label [textContent]="film.odobren ? 'Da' : 'Ne'"></label>
+			</div>
+
+			<div>
+				<span>Video: </span>
+				<label [textContent]="film.video ? 'Da' : 'Ne'"></label>
+			</div>
+
+			<div>
+				<span>Ocjena glasača: </span>
+				<label [textContent]="film.ocjenaGlasaca"></label>
+			</div>
+
+			<div>
+				<span>Broj glasova: </span>
+				<label [textContent]="film.brojGlasaca"></label>
+			</div>
+
+			<div>
+				<span>Popularnost: </span>
+				<label [textContent]="film.popularnost"></label>
+			</div>
+
+			<div>
+				<span>Poveznica na pozadinu: </span>
+				<a
+					[href]="'https://image.tmdb.org/t/p/original' + film.putanjaPlakat"
+					[textContent]="'https://image.tmdb.org/t/p/original' + film.putanjaPlakat"
+					target="_blank"
+				></a>
+			</div>
+		</div>
+		<div id="poster">
+			<img
+				[src]="'/posteri' + film.putanjaPlakat"
+				[alt]="'Poster za film' + film.naslov"
+			/>
+			<a
+				[routerLink]="['./galerija']"
+				[textContent]="'GALERIJA'"
+			></a>
+		</div>
+	</div>
+</div>
+<ng-template #prazno>
+	<h1>Pregled filma</h1>
+	<hr>
+	<p>Film nije pronađen.</p>
+</ng-template>

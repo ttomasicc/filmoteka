@@ -1,0 +1,269 @@
+<h1>Dokumentacija</h1>
+<hr>
+
+<h3>REST API</h3>
+<table>
+	<thead>
+	<tr>
+		<th>Resurs parametri</th>
+		<th>GET</th>
+		<th>POST</th>
+		<th>PUT</th>
+		<th>DELETE</th>
+		<th>Dovršenost</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>api/korisnici</td>
+		<td>vraća listu korisnika</td>
+		<td>kreira novog korisnika</td>
+		<td>/</td>
+		<td>/</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/korisnici/:korime</td>
+		<td>vraća određenog korisnika</td>
+		<td>"metoda nije dopuštena" <b>(405)</b></td>
+		<td>ažurira određenog korisnika</td>
+		<td>/</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/korisnici/:korime/prijava</td>
+		<td>/</td>
+		<td>provjerava podatke prijave i vraća je li korisnik uspješno prijavljen</td>
+		<td>/</td>
+		<td>/</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/filmovi?stranica=<i>broj</i>&brojFilmova=<i>broj</i>[&datum=<i>datum</i>][&zanr=<i>idZanr</i>][&naziv=<i>dioNazivFilma</i>][&sortiraj=[<i>d | z | n</i>]][&odobren=[1 | 0]]</td>
+		<td>vraća listu određenog broja filmova za neku stranicu (<i>broj</i>), opcionalno filtrirano po datumu unosa (<i>datum</i>) i/ili žanru (<i>idZanr</i>) i/ili nazivu filma (<i>dioNazivFilma</i>) i/ili odobrenju (1 - odobren, 0 - neodobren), te može sortirati uzlazno po datumu (<i>d</i>), nazivu (<i>n</i>) ili žanru (<i>z</i>)</td>
+		<td>uz dobivene podatke čita sve podatke o filmu s vanjskog servisa i dodaje novi film</td>
+		<td>/</td>
+		<td>/</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/filmovi/:id</td>
+		<td>vraća podatke određenog filma (<i>id</i>)</td>
+		<td>"metoda nije dopuštena" <b>(405)</b></td>
+		<td>ažurira podatke određenog filma</td>
+		<td>briše određeni film</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/zanr</td>
+		<td>vraća listu žanrova</td>
+		<td>dodaje novi žanr</td>
+		<td>/</td>
+		<td>briše sve žanrove za koje ne postoji film</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/zanr/:id</td>
+		<td>vraća podatke određenog žanra (<i>id</i>)</td>
+		<td>"metoda nije dopuštena" <b>(405)</b></td>
+		<td>ažurira postojeći žanr</td>
+		<td>briše određeni žanr</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/tmdb/zanr</td>
+		<td>prosljeđuje listu žanrova koju vrati TMDB servis</td>
+		<td>/</td>
+		<td>/</td>
+		<td>/</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>api/tmdb/filmovi?kljucnaRijec=<i>rijec1[,rijec2]</i>&stranica=<i>broj</i></td>
+		<td>prosljeđuje listu filmova koju vrati TMDB servis, a čiji filmovi imaju ključnu riječ ili više njih</td>
+		<td>/</td>
+		<td>/</td>
+		<td>/</td>
+		<td>&#9989;</td>
+	</tr>
+	</tbody>
+</table>
+
+<h3>WEB APP</h3>
+<table>
+	<thead>
+	<tr>
+		<th>Rola</th>
+		<th>Stranica / funkcionalnost</th>
+		<th>Dovršenost</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>Gost</td>
+		<td>Naslovnica</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Gost</td>
+		<td>Dokumentacija</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Gost</td>
+		<td>Prijava</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Gost</td>
+		<td>Registracija</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Odjava</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Profil</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Filmovi pregled</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Film</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Filmovi pretraživanje</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Galerija slika</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Korisnik</td>
+		<td>Slika</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Admin</td>
+		<td>Filmovi prijedlozi</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>Admin</td>
+		<td>Žanrovi</td>
+		<td>&#9989;</td>
+	</tr>
+	</tbody>
+</table>
+
+<h3>Zadaci</h3>
+<table>
+	<thead>
+	<tr>
+		<th>Korak</th>
+		<th>Dovršenost</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td>1</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>2</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>3</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>4</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>5</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>6</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>7</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>8</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>9</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr class="dodatno">
+		<td>10</td>
+		<td>/</td>
+	</tr>
+	<tr>
+		<td>11</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>12</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>13</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>14</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>15</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>16</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>17</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>18</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>19</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr>
+		<td>20</td>
+		<td>&#9989;</td>
+	</tr>
+	<tr class="dodatno">
+		<td>21</td>
+		<td>&#9989;</td>
+	</tr>
+	</tbody>
+</table>
+
+<h3>O Autoru</h3>
+<img src="/assets/img/meself.jpeg" alt="Autor Tin Tomašić"/>
+<br>
+<label><strong>Tin Tomašić</strong><i> (<a href="mailto:ttomasic20@student.foi.hr">ttomasic20@student.foi.hr</a>)</i></label>

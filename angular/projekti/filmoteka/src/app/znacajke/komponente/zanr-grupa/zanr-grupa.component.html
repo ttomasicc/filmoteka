@@ -1,0 +1,5 @@
+<h2 id="zanrNaslov">{{zanr.opis}}</h2>
+<div *ngIf="filmovi$ | async as filmovi; else prazno" class="film-grupa-kontejner">
+	<app-film *ngFor="let film of filmovi.slice(0, 2)" [film]="film"></app-film>
+</div>
+<ng-template #prazno>Nema filmova za ovaj žanr...</ng-template>

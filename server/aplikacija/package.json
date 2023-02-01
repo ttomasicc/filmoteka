@@ -1,0 +1,21 @@
+{
+  "name": "aplikacija",
+  "version": "1.0.0",
+  "description": "Web aplikacija",
+  "main": "build/appServer.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "tsc --watch false && NODE_PATH=/usr/local/lib/node_modules/ node build/appServer.js ../konf.csv",
+    "clean": "rm -r build/*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "WEB",
+    "ANGULAR"
+  ],
+  "author": "Tin Tomašić",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

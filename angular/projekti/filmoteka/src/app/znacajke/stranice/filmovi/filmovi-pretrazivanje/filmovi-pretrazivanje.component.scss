@@ -1,0 +1,65 @@
+@import '../../../../../styles-boje';
+
+form {
+	display: inline;
+	input, button {
+		margin: 0 10px;
+	}
+
+	button {
+		padding: 10px;
+	}
+
+	input {
+		padding: 8px;
+	}
+}
+
+p {
+	margin-top: 6px;
+	float: right;
+
+	span {
+		margin-left: 12px;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+}
+
+#filmovi {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	grid-column-gap: 14px;
+	grid-row-gap: 14px;
+
+	@media only screen and (max-width: 750px) {
+		grid-template-columns: repeat(4, 1fr);
+		grid-column-gap: 10px;
+	}
+
+	@media only screen and (max-width: 500px) {
+		grid-template-columns: repeat(2, 1fr);
+		grid-column-gap: 10px;
+	}
+
+	@media only screen and (max-width: 300px) {
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+}
+
+nav {
+	margin-top: 32px;
+	display: flex;
+	justify-content: center;
+
+	ul {
+		list-style: none;
+		display: flex;
+	}
+
+	button {
+		padding: 8px 10px;
+		border: 1px solid lighten($crna, 30%);
+	}
+}

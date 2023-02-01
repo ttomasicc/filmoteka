@@ -1,0 +1,41 @@
+@import '../../../../styles-boje';
+
+h2 {
+	margin-bottom: 14px;
+}
+
+table {
+	border-collapse: collapse;
+
+	tr {
+		background-color: $zuta;
+
+		td, th {
+			height: 44px;
+			padding: 5px 10px;
+			border: solid;
+
+			&:last-child {
+				border: none;
+				background: #fff;
+			}
+		}
+
+		input {
+			margin-left: 8px;
+			width: 24px;
+			height: 24px;
+		}
+	}
+}
+
+#poruke {
+	label {
+		margin: 8px 0;
+		display: block;
+	}
+
+	+ button {
+		margin-top: 12px;
+	}
+}

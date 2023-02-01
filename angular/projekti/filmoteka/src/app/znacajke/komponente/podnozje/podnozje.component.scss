@@ -1,0 +1,11 @@
+@import "../../../../styles-boje";
+
+footer {
+	text-align: center;
+	padding: 15px;
+	background-color: $crna;
+
+	span {
+		color: $bijela;
+	}
+}

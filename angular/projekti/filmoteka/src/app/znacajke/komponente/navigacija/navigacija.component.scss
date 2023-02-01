@@ -1,0 +1,66 @@
+@import '../../../../styles-boje';
+
+header {
+	ul {
+		list-style-type: none;
+		margin: 0;
+		overflow: hidden;
+		background-color: $crna;
+	}
+
+	li {
+		float: left;
+
+		a, button {
+			display: block;
+			color: #fff;
+			padding: 12px;
+			text: {
+				align: center;
+				decoration: none;
+			}
+		}
+
+		a {
+			padding: 20px 10px;
+
+			&:hover {
+				background-color: lighten($crna, 5%);
+			}
+		}
+
+		button {
+			background-color: $crna;
+			font-weight: bold;
+
+			margin: {
+				top: 10px;
+				right: 10px;
+			}
+
+			border: {
+				color: $bijela;
+				radius: 5px;
+			}
+		}
+	}
+
+	#btnPrijava, #btnOdjava {
+		border: 1px solid $bijela;
+		&:hover {
+			background-color: $bijela;
+			color: $crna;
+		}
+	}
+
+	#btnRegistracija {
+		border-color: $zuta;
+		background-color: $zuta;
+		color: $crna;
+
+		&:hover {
+			border-color: lighten($zuta, 10%);
+			background-color: lighten($zuta, 10%);
+		}
+	}
+}

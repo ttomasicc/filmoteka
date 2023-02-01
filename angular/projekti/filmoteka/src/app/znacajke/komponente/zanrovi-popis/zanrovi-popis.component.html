@@ -1,0 +1,60 @@
+<h2>Popis žanrova</h2>
+
+<ng-container *ngIf="(zanrovi$ | async)?.length ?? 0 > 0; else prazno">
+	<table>
+		<thead>
+		<tr>
+			<th>ID</th>
+			<th>Naziv žanra</th>
+			<th></th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr *ngFor="let zanr of (zanrovi$ | async)">
+			<td>{{zanr?.id}}</td>
+			<td>{{zanr.opis}}</td>
+			<td>
+				<button
+					type="button"
+					*ngIf="stanje === stanjeType.NORMALNO"
+					(click)="omoguciAzuriranje(zanr)"
+					[textContent]="'Ažuriraj'"
+				></button>
+				<input
+					type="text"
+					(keyup.escape)="onemoguciAzuriranje()"
+					(keyup.enter)="azuriraj($event.srcElement)"
+					[placeholder]="'Novi naziv žanra'"
+					*ngIf="stanje === stanjeType.UREDIVANJE && selektiraniZanr?.id === zanr.id"
+				/>
+			</td>
+			<td>
+				<button
+					type="button"
+					class="opasno"
+					*ngIf="stanje === stanjeType.NORMALNO"
+					(click)="ukloni(zanr)"
+					[textContent]="'Ukloni'"
+				></button>
+				<button
+					type="button"
+					*ngIf="stanje === stanjeType.UREDIVANJE && selektiraniZanr?.id === zanr.id"
+					(click)="onemoguciAzuriranje()"
+					[textContent]="'Odustani'"
+				></button>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+	<button
+		type="button"
+		class="opasno"
+		(click)="ukloniNekoristene()"
+		[textContent]="'Ukloni nekorištene'"
+	></button>
+</ng-container>
+
+<ng-template #prazno>
+	Trenutno nema žanrova.
+</ng-template>

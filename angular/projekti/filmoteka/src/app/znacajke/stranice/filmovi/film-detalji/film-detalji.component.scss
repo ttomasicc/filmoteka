@@ -1,0 +1,43 @@
+#film {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 22px;
+
+	#info {
+		div {
+			display: grid;
+			grid-template-columns: 1fr 2fr;
+			grid-column-gap: 10px;
+			margin-bottom: 6px;
+			word-wrap: break-word;
+			word-break: break-word;
+
+			span {
+				font-weight: bold;
+			}
+
+			div {
+				display: block;
+
+				span {
+					font-weight: normal;
+				}
+			}
+		}
+	}
+
+	#poster {
+		text-align: center;
+
+		img {
+			margin: {
+				left: auto;
+				right: auto;
+				bottom: 12px;
+			};
+			display: block;
+			width: 80%;
+
+		}
+	}
+}

@@ -1,0 +1,14 @@
+<h1>Prijedlozi filmova</h1>
+<hr>
+
+<div id="filmovi" *ngIf="(filmovi$ | async)?.length ?? 0 > 0; else prazno">
+	<app-film
+		*ngFor="let film of (filmovi$ | async)"
+		[film]="film"
+		[kontrole]="true"
+		(obrisi)="azurirajPogled()"
+	></app-film>
+</div>
+<ng-template #prazno>
+	Trenutno nema prijedloga.
+</ng-template>

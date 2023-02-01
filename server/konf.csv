@@ -1,0 +1,4 @@
+rest.port=12260
+app.port=12180
+tmdb.apikey.v3=
+tmdb.apikey.v4=

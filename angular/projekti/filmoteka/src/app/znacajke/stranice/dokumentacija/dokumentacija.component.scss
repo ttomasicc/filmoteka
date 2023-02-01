@@ -1,0 +1,26 @@
+@import '../../../../styles-boje';
+
+table {
+	border-collapse: collapse;
+	background-color: $zuta;
+	margin: 12px 0;
+
+	th {
+		background-color: darken($zuta, 15%);
+	}
+
+	th, td {
+		padding: 10px;
+		border: solid;
+	}
+
+	.dodatno {
+		background-color: $plava;
+	}
+}
+
+img {
+	margin: 12px 0;
+	width: 300px;
+	border-radius: 5px;
+}

@@ -1,0 +1,41 @@
+<h1>Profil</h1>
+<hr>
+<div *ngIf="korisnik$ | async as korisnik" class="grid-kontejner">
+	<div class="grid-slika">
+		<img width="150"
+			 src="https://www.pngitem.com/pimgs/m/272-2720607_this-icon-for-gender-neutral-user-circle-hd.png"
+			 alt="Ikona profila">
+		<label [textContent]="korisnik.korime" ></label>
+		<label [textContent]="'('+ korisnik.email +')'"></label>
+	</div>
+
+	<form action="/" method="POST" [formGroup]="forma" (ngSubmit)="azuriraj()" class="grid-forma">
+		<div>
+			<label for="ime">Ime</label>
+			<input type="text" id="ime" formControlName="ime">
+			<label *ngIf="isNotValidno('ime')" class="error">
+				Ime mora sadržavati 3 - 50 znakova.
+			</label>
+		</div>
+
+		<div>
+			<label for="prezime">Prezime</label>
+			<input type="text" id="prezime" formControlName="prezime">
+			<label *ngIf="isNotValidno('prezime')" class="error">
+				Prezime mora sadržavati 3 - 70 znakova.
+			</label>
+		</div>
+
+		<div class="red">
+			<label for="lozinka">Nova lozinka</label>
+			<input type="password" id="lozinka" formControlName="lozinka">
+			<label *ngIf="isNotValidno('lozinka')" class="error">
+				Obavezno polje.
+			</label>
+		</div>
+
+		<button type="submit" [disabled]="forma.invalid" class="red">Spremi</button>
+	</form>
+
+	<label *ngIf="poruka" [textContent]="poruka" id="poruka"></label>
+</div>

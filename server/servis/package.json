@@ -1,0 +1,16 @@
+{
+  "name": "servis",
+  "version": "1.0.0",
+  "description": "REST servis",
+  "main": "restServer.js",
+  "scripts": {
+    "start": "NODE_PATH=/usr/local/lib/node_modules/ node restServer.js ../konf.csv",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "REST",
+    "API"
+  ],
+  "author": "Tin Tomašić",
+  "license": "ISC"
+}

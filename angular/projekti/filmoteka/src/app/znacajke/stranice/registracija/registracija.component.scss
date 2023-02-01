@@ -1,0 +1,28 @@
+#registracijaNaslov {
+	margin: 32px 0;
+}
+
+form {
+	label {
+		width: 40%;
+		margin: 0 auto;
+		display: block;
+		text-align: left;
+	}
+
+	input {
+		width: 40%;
+		padding: 8px 20px;
+		margin: 10px auto;
+		display: block;
+
+		+ label {
+			margin-bottom: 12px;
+		}
+	}
+
+	button {
+		width: 20%;
+		margin: 20px;
+	}
+}

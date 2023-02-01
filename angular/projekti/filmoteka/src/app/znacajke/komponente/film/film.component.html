@@ -1,0 +1,19 @@
+<div class="film-kartica">
+	<img [src]="'https://image.tmdb.org/t/p/w500' + film.putanjaPozadina"
+		 [alt]="'Film ' + film.naslov"
+		 class="film-slika">
+	<div class="film-info">
+		<a [routerLink]="['/filmovi/pregled', film.id]">
+			<h4 [textContent]="film.naslov"></h4>
+		</a>
+		<hr>
+		<span [textContent]="zanrovi"></span>
+		<p [textContent]="film.sazetak"></p>
+		<p [textContent]="'Unos ' + (film.datumUnosa | date:'dd.MM.yyyy.')"></p>
+		<app-film-kontrole
+			*ngIf="kontrole"
+			[filmID]="film.id"
+			(obrisi)="destroy()"
+		></app-film-kontrole>
+	</div>
+</div>

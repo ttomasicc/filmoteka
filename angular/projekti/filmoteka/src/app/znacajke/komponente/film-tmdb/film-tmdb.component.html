@@ -1,0 +1,17 @@
+<div class="film-kartica">
+	<img [src]="'https://image.tmdb.org/t/p/original' + film.putanjaPlakat"
+		 [alt]="'Plakat za film ' + film.naslov"
+		 class="film-slika">
+	<div class="film-info">
+		<h4 [textContent]="film.naslov + ' (' + (film.datumIzdavanja | date:'yyyy') + ')'"></h4>
+		<hr>
+		<p>Ocjena: <strong>{{film.ocjenaGlasaca}}</strong> ({{film.brojGlasaca}} glasova)</p>
+		<p>Popularnost: {{film.popularnost}}</p>
+	</div>
+	<div class="btn">
+		<button
+			type="button"
+			(click)="dodajPrijedlog()"
+			[textContent]="'Dodaj kao prijedlog'"></button>
+	</div>
+</div>

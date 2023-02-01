@@ -1,0 +1,11 @@
+#filmovi {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 14px;
+	grid-row-gap: 14px;
+
+	@media only screen and (max-width: 400px) {
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+}

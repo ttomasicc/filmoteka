@@ -1,0 +1,6 @@
+<h1>Naslovnica</h1>
+<hr>
+<div *ngIf="zanrovi$ | async as zanrovi; else prazno">
+	<app-zanr-grupa *ngFor="let zanr of zanrovi" [zanr]="zanr"></app-zanr-grupa>
+</div>
+<ng-template #prazno>Nije pronađen ni jedan žanr...</ng-template>

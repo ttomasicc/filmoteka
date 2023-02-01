@@ -1,0 +1,60 @@
+@import '../../../../styles-boje';
+
+.grid-kontejner {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-rows: 3fr auto;
+	column-gap: 22px;
+	text-align: center;
+
+	.grid-slika {
+		grid-row: 1 / 2;
+
+		label {
+			display: block;
+			text-align: center;
+
+			+ label {
+				color: lighten($crna, 30%);
+				margin-top: 6px;
+			}
+		}
+	}
+
+	.grid-forma {
+		display: grid;
+		column-gap: 22px;
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows: repeat(3, 1fr);
+
+		.red {
+			grid-column: 1 / 3;
+		}
+
+		button {
+			margin: 20px auto;
+			width: 80%;
+		}
+	}
+
+	img {
+		border-radius: 100px;
+	}
+
+	label {
+		text-align: left;
+		display: block;
+	}
+
+	input {
+		width: 100%;
+		padding: 8px 20px;
+		margin: 10px auto;
+	}
+
+	#poruka {
+		margin-top: 14px;
+		text-align: center;
+		grid-column: 2;
+	}
+}

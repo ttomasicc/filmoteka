@@ -1,0 +1,41 @@
+@import '../../../../styles-boje';
+
+h2 {
+	margin-bottom: 14px;
+}
+
+table {
+	border-collapse: collapse;
+
+	tr {
+		background-color: $zuta;
+
+		td, th {
+			height: 44px;
+			padding: 5px 10px;
+			border: solid;
+
+			&:nth-last-child(-n+2) {
+				border: none;
+				background: #fff;
+			}
+
+			input {
+				padding: 10px;
+			}
+		}
+	}
+
+	+ button {
+		margin-top: 12px;
+	}
+}
+
+.opasno {
+	background: $crvena;
+	color: lighten($bijela, 20%);
+
+	&:hover {
+		background: lighten($crvena, 5%);
+	}
+}

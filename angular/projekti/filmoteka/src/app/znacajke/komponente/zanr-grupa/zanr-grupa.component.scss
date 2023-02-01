@@ -1,0 +1,18 @@
+#zanrNaslov {
+	margin: {
+		top: 12px;
+		bottom: 16px;
+	};
+}
+
+.film-grupa-kontejner {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-column-gap: 14px;
+	grid-row-gap: 14px;
+
+	@media only screen and (max-width: 500px) {
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+}

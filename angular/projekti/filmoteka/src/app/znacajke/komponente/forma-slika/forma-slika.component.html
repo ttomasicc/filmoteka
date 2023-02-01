@@ -1,0 +1,16 @@
+<form action="/" [formGroup]="forma" (ngSubmit)="postaviSliku()">
+	<input
+		id="dat_slika"
+		type="file"
+		name="slika"
+		accept=".jpg,.jpeg,.png,.gif"
+		formControlName="slika"
+		(change)="onChangeDat($event.target)"
+	/>
+	<button
+		id="btnPostavi"
+		type="submit"
+		[textContent]="'Postavi'"
+		[disabled]="forma.invalid"
+	></button>
+</form>

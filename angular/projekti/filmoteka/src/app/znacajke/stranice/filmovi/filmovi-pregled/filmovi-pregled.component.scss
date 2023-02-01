@@ -1,0 +1,52 @@
+@import '../../../../../styles-boje';
+
+select, input[type='date'] {
+	padding: 10px;
+}
+
+select + select {
+	margin: {
+		left: 12px;
+		right: 12px;
+	}
+}
+
+p {
+	margin-top: 6px;
+	float: right;
+
+	span {
+		margin-left: 12px;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+}
+
+#filmovi {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	grid-column-gap: 14px;
+	grid-row-gap: 14px;
+
+	@media only screen and (max-width: 400px) {
+		grid-template-columns: 1fr;
+		grid-column-gap: 0;
+	}
+}
+
+
+nav {
+	margin-top: 32px;
+	display: flex;
+	justify-content: center;
+
+	ul {
+		list-style: none;
+		display: flex;
+	}
+
+	button {
+		padding: 8px 10px;
+		border: 1px solid lighten($crna, 30%);
+	}
+}

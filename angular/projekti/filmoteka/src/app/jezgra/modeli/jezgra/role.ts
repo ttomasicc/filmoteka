@@ -1,0 +1,5 @@
+export enum Rola {
+	JAVNO = 'ROLA_JAVNO',
+	KORISNIK = 'ROLA_KORISNIK',
+	ADMIN = 'ROLA_ADMIN'
+}

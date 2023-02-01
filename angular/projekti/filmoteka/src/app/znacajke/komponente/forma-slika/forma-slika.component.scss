@@ -1,0 +1,14 @@
+@import '../../../../styles-boje';
+
+* {
+	display: inline;
+}
+
+input[type='file'] {
+	padding: 5px;
+	border-color: $zuta;
+}
+
+#btnPostavi {
+	margin-left: 8px;
+}

@@ -1,0 +1,45 @@
+<h2>Popis žanrova TMDB</h2>
+
+<ng-container *ngIf="(zanrovi$ | async)?.length ?? 0 > 0; else prazno">
+	<table>
+		<thead>
+		<tr>
+			<th>ID TMDB</th>
+			<th>Naziv žanra</th>
+			<th></th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr *ngFor="let zanr of (zanrovi$ | async)">
+			<td>{{zanr.idTMDB}}</td>
+			<td>{{zanr.opis}}</td>
+			<td>
+				<input
+					type="checkbox"
+					[attr.data-id]="zanr.idTMDB"
+					[attr.data-opis]="zanr.opis"
+					(change)="onChangeKlik($event.target)"
+				/>
+			</td>
+		</tr>
+		</tbody>
+	</table>
+
+	<div id="poruke">
+		<label
+			*ngFor="let poruka of poruke"
+			[textContent]="poruka"
+		></label>
+	</div>
+
+	<button
+		type="button"
+		class="opasno"
+		(click)="dodajSelektirane()"
+		[textContent]="'Dodaj označene'"
+	></button>
+</ng-container>
+
+<ng-template #prazno>
+	TMDB servis trenutno nije dostupan.
+</ng-template>
